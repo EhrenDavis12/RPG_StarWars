@@ -1,0 +1,47 @@
+:root{
+    --textColor: black;
+    --headerColor: white;
+    --backgroundColor: black;
+    --borderColor: white;
+    --font-family: 'Sawarabi Mincho', sans-serif;
+    --cardBkgColor: moccasin;
+    --borderColor: rgb(134, 131, 136);
+}
+
+.jumbotron{
+    color: var(--headerColor);
+    border-width: 1em;
+    border-style: ridge;
+    border-color: var(--borderColor);
+    background: url('/assets/worldImages/banner.jpg') center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#mainMessage{
+    color: var(--headerColor);
+    text-align: center;
+}
+
+body{
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    font-family: var(--font-family);
+    background-image: url("/assets/worldImages/woldBkg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.btn{
+    color: black;
+    margin: 1em;
+}
+
+.row{
+    margin: 2em;
+}

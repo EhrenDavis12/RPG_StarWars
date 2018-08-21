@@ -1,0 +1,41 @@
+
+.card{
+    height: 200px;
+    background-color: var(--cardBkgColor);
+    color: var(--textColor);
+    border-width: 1em;
+    border-style: ridge;
+    border-color: var(--borderColor);
+}
+.card-character{
+    height: 160px;
+    border-width: 0.2em;
+    width: 200px;
+}
+/* .card-body{
+
+}
+.card-body-character{
+    
+}
+.card-img-top{
+
+} */
+.card-img-top-character{
+    background-color: var(--backgroundColor);
+    height: 130px;
+}
+.card-title{
+    text-align: center;
+}
+.card-title-character{
+    vertical-align:middle;
+    /* background-color: pink; */
+    margin: 4px;
+}
+.card-subtitle{
+    margin-left: 20px;
+}
+.card-text{
+    margin-left: 20px;
+}
