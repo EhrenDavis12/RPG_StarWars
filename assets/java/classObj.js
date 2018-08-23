@@ -4,25 +4,27 @@ var displayWorld = {
     characterDiv: "#characterDiv",
     playerCard: "#playerCard",
     enemyCard: "#enemyCard",
-    btnAttack: "#btnAttack",
-    btnDefend: "#btnDefend",
-    btnRun: "#btnRun",
+    btnShop: "#shop",
+    btnStrike: "#attack-strike",
+    btnJump: "#attack-jump",
+    btnPush: "#attack-push",
+    btnRun: "#run",
     chosenPlayer: "#chosenPlayer",
-    chosenEnemy: "#chosenEnemy"
+    chosenEnemy: "#chosenEnemy",
+    chosenPlayerAttack: "#chosenPlayerAttack",
+    chosenEnemyAttack: "#chosenEnemyAttack"
 };
 
 var displayPlayer = {
     name: "#playerName",
     health: "#playerHealth",
-    attack: "#playerAttack",
-    defence: "#playerDefence"
+    attack: "#playerAttack"
 };
 
 var displayEnemy = {
     name: "#enemyName",
     health: "#enemyHealth",
-    attack: "#enemyAttack",
-    defence: "#enemyDefence"
+    attack: "#enemyAttack"
 };
 
 var characterSelectionNames= [
@@ -34,10 +36,19 @@ var characterSelectionNames= [
     "jar-jar"
 ]
 
+var AttackOptions = ["strike", "push", "jump"]
+
 var messagesDictionary = {
     jumboTitle: "Star Wars Battle!",
     selectCharacter: "Select Your Character!",
     selectEnemy: "Select Your Enemy!",
-    battleBegin: "Let The BATTLE Begin!!!"
+    battleBegin: "Let The BATTLE Begin!!!",
+    battleTieBattle: "No one took no damage.",
+    computerWinsBattle: "You took damage.",
+    playerWinsBattle: "Enemy took damage.",
+    playerWonGame: "Player Has won the GAME!!!",
+    playerWonMatch: "You have Won the match! Select the next challenger!",
+    playerLostMatch: "You have Lost the match! Select your next character!"
+
 }
 

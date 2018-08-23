@@ -6,6 +6,8 @@
     --font-family: 'Sawarabi Mincho', sans-serif;
     --cardBkgColor: moccasin;
     --borderColor: rgb(134, 131, 136);
+    --battleWin: rgb(21, 255, 0);
+    --battleLose: red;
 }
 
 .jumbotron{
@@ -43,5 +45,6 @@ img{
 }
 
 .row{
-    margin: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }

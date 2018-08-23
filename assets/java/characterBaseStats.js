@@ -1,33 +1,28 @@
 
+
 var yoda = {
-    health: 50,
-    attack: 120,
-    defence: 120
+    health: 10,
+    attack: 5
 };
 var darthvader = {
-    health: 80,
-    attack: 120,
-    defence: 90
+    health: 10,
+    attack: 5
 };
 var darthmaul = {
-    health: 100,
-    attack: 130,
-    defence: 50
+    health: 10,
+    attack: 5
 };
 var obeone = {
-    health: 100,
-    attack: 90,
-    defence: 80
+    health: 7,
+    attack: 3
 };
 var obeoneOld = {
-    health: 80,
-    attack: 100,
-    defence: 100
+    health: 5,
+    attack: 4
 };
 var jarjar = {
-    health: 50,
-    attack: 10,
-    defence: 10
+    health: 5,
+    attack: 1
 };
 
 function getCharacter(name) {

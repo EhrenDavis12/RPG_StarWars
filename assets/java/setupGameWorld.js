@@ -1,26 +1,35 @@
 
 
-$(document).ready(setGameUpToPlay());
+$(document).ready(setGameUpFirstTime());
 
-$(".card-character").on("click", function () {
+$(document).on("click", ".card-character", function () {
+    $(displayWorld.mainMessage).css("color", "var(--headerColor)");
     if ($(displayPlayer.name).text() === "") {
         playerHasSelectedCharacter($(this).attr("data-character"));
-    } else {
+    } else if ($(displayEnemy.name).text() === "") {
         playerHasSelectedEnemy($(this).attr("data-character"));
     }
 });
 
-function setGameUpToPlay() {
+function setGameUpFirstTime(){
     $(displayWorld.jumboWords).text(messagesDictionary.jumboTitle);
     $(displayWorld.mainMessage).text(messagesDictionary.selectCharacter);
+    setGameUpToPlay();
+}
+
+function setGameUpToPlay() {
     populateSelectCharacterList();
     hideOnSelectPlayerCharacter();
 }
 
 function populateSelectCharacterList() {
-    $.each(characterSelectionNames, function (index, value) {
-        createCharacterCard(displayWorld.characterDiv, value);
-    });
+    if ($(displayPlayer.name).text() === "") {
+        $(displayWorld.characterDiv).empty();
+        $.each(characterSelectionNames, function (index, value) {
+            createCharacterCard(displayWorld.characterDiv, value);
+        });
+    }
+    $(displayWorld.characterDiv).show();
 }
 
 function createCharacterCard(parentDiv, nameToCreate) {
@@ -50,49 +59,68 @@ function createCharacterCard(parentDiv, nameToCreate) {
 }
 
 function hideOnSelectPlayerCharacter() {
-    $(displayWorld.playerCard).hide();
-    $(displayWorld.enemyCard).hide();
-    $(displayWorld.btnAttack).hide();
-    $(displayWorld.playerCard).hide();
-    $(displayWorld.btnDefend).hide();
-    $(displayWorld.btnRun).hide();
+    if ($(displayPlayer.name).text() === "") {
+        $(displayWorld.playerCard).hide();
+    }
+    if ($(displayEnemy.name).text() === "") {
+        $(displayWorld.enemyCard).hide();
+    }
+    revealBattleButtons(false);
 }
 
 function playerHasSelectedCharacter(selectedCharacter) {
     removeFromCharacterList(selectedCharacter);
     createCharacterCard(displayWorld.chosenPlayer, selectedCharacter);
-    populateStats(displayPlayer, selectedCharacter);
+    populateStatsCard(displayPlayer, selectedCharacter);
     $(displayWorld.playerCard).show();
     $(displayWorld.mainMessage).text(messagesDictionary.selectEnemy);
 }
 
 function removeFromCharacterList(name) {
     var attObj = "[data-character=" + name + "]";
-    $(attObj).remove();
+    $(attObj).parent().remove();
 }
 
-function populateStats(parent, selectedCharacter) {
+function populateStatsCard(parent, selectedCharacter) {
     $(parent.name).text(selectedCharacter.toUpperCase());
     var character = getCharacter(selectedCharacter);
-    $(parent.health).text($(parent.health).text() + character.health);
-    $(parent.attack).text($(parent.attack).text() + character.attack);
-    $(parent.defence).text($(parent.defence).text() + character.defence);
+    populateStats(parent, character);
+    renderStats(parent);
+}
+
+function populateStats(parent, character) {
+    $(parent.health).attr("value", character.health);
+    $(parent.attack).attr("value", character.attack);
+}
+
+function renderStats(parent) {
+    $(parent.health).text("Health: " + $(parent.health).attr("value"));
+    $(parent.attack).text("Attack: " + $(parent.attack).attr("value"));
 }
 
 function playerHasSelectedEnemy(selectedCharacter) {
     $(displayWorld.characterDiv).hide();
     removeFromCharacterList(selectedCharacter);
     createCharacterCard(displayWorld.chosenEnemy, selectedCharacter);
-    populateStats(displayEnemy, selectedCharacter);
+    populateStatsCard(displayEnemy, selectedCharacter);
     $(displayWorld.enemyCard).show();
     $(displayWorld.mainMessage).text(messagesDictionary.battleBegin);
     $(displayWorld.enemyCard).show();
-    revealBattleButtons()
+    revealBattleButtons(true);
 }
 
-function revealBattleButtons() {
-    $(displayWorld.btnAttack).show();
-    $(displayWorld.playerCard).show();
-    $(displayWorld.btnDefend).show();
-    $(displayWorld.btnRun).show();
+function revealBattleButtons(revealButtons) {
+    if (revealButtons) {
+        $(displayWorld.btnShop).hide();
+        $(displayWorld.btnStrike).show();
+        $(displayWorld.btnJump).show();
+        $(displayWorld.btnPush).show();
+        $(displayWorld.btnRun).hide();
+    } else {
+        $(displayWorld.btnShop).hide();
+        $(displayWorld.btnStrike).hide();
+        $(displayWorld.btnJump).hide();
+        $(displayWorld.btnPush).hide();
+        $(displayWorld.btnRun).hide();
+    }
 }

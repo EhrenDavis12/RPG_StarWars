@@ -26,36 +26,43 @@
             </div>
         </div>
         <div id="characterDiv" class="row"></div>
-        <div  class="row">
-                <div id="chosenPlayer" class="col-md-6"></div>
-                <div id="chosenEnemy" class="col-md-6"></div>
-        </div>
         <div class="row">
 
             <div class="col-md-6">
+                <div class="row">
+                    <div id="chosenPlayer" class="col-md-6"></div>
+                    <div id="chosenPlayerAttack" class="col-md-6"></div>
+                </div>
                 <div id="playerCard" class="card">
                     <div class="card-body">
                         <h5 id="playerName" class="card-title"></h5>
                         <h6 class="card-subtitle mb-2 text-muted">Character Stats</h6>
-                        <p id="playerHealth" class="card-text">Health: </p>
-                        <p id="playerAttack" class="card-text">Attack: </p>
-                        <p id="playerDefence" class="card-text">Defence: </p>
+                        <p id="playerHealth" class="card-text" value=0></p>
+                        <p id="playerAttack" class="card-text" value=0></p>
+                        <!-- <p id="playerDefence" class="card-text">Defence: </p> -->
                     </div>
                 </div>
+                <button id="attack-strike" type="button" class="btn btn-success attack" value="strike">Strike</button>
+                <button id="attack-push" type="button" class="btn btn-success attack" value="push">Force Push</button>
+                <button id="attack-jump" type="button" class="btn btn-success attack" value="jump">Jump Force Strike</button>
+
             </div>
             <div class="col-md-6">
+                <div class="row">
+                    <div id="chosenEnemyAttack" class="col-md-6"></div>
+                    <div id="chosenEnemy" class="col-md-6"></div>
+                </div>
                 <div id="enemyCard" class="card">
                     <div class="card-body">
-                        <h5 id="enemyName" class="card-title">No enemy selected</h5>
+                        <h5 id="enemyName" class="card-title"></h5>
                         <h6 class="card-subtitle mb-2 text-muted">Character Stats</h6>
-                        <p id="enemyHealth" class="card-text">Health: </p>
-                        <p id="enemyAttack" class="card-text">Attack: </p>
-                        <p id="enemyDefence" class="card-text">Defence: </p>
+                        <p id="enemyHealth" class="card-text" value=0></p>
+                        <p id="enemyAttack" class="card-text" value=0></p>
+                        <!-- <p id="enemyDefence" class="card-text">Defence: </p> -->
                     </div>
                 </div>
-                <button id="btnAttack" type="button" class="btn btn-primary">Attack</button>
-                <button id="btnDefend" type="button" class="btn btn-success">Defend</button>
-                <button id="btnRun" type="button" class="btn btn-warning">Run</button>
+                <button id="shop" type="button" class="btn btn-primary">Go to shop</button>
+                <button id="run" type="button" class="btn btn-warning">Run</button>
             </div>
         </div>
 
@@ -64,8 +71,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/java/classObj.js"></script>
     <script src="./assets/java/characterBaseStats.js"></script>
-    <script src="./assets/java/battle.js"></script>
     <script src="./assets/java/setupGameWorld.js"></script>
+    <script src="./assets/java/matchEnd.js"></script>
+    <script src="./assets/java/battle.js"></script>
 </body>
 
 </html>
