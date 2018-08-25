@@ -46,7 +46,7 @@ var messagesDictionary = {
     battleTieBattle: "No one took no damage.",
     computerWinsBattle: "You took damage.",
     playerWinsBattle: "Enemy took damage.",
-    playerWonGame: "Player Has won the GAME!!!",
+    playerWonGame: "Player Has Won the GAME!!!",
     playerWonMatch: "You have Won the match! Select the next challenger!",
     playerLostMatch: "You have Lost the match! Select your next character!"
 

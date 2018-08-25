@@ -26,36 +26,10 @@ function populateSelectCharacterList() {
     if ($(displayPlayer.name).text() === "") {
         $(displayWorld.characterDiv).empty();
         $.each(characterSelectionNames, function (index, value) {
-            createCharacterCard(displayWorld.characterDiv, value);
+            cardFactory("characterCard",displayWorld.characterDiv, value);
         });
     }
     $(displayWorld.characterDiv).show();
-}
-
-function createCharacterCard(parentDiv, nameToCreate) {
-
-    var col = $("<div>");
-    col.addClass("col-md-2");
-    $(parentDiv).append(col);
-
-    var card = $("<div>");
-    card.addClass("card card-character");
-    card.attr("data-character", nameToCreate);
-    $(col).append(card);
-
-    var cardBody = $("<div>");
-    cardBody.addClass("card-body card-body-character");
-    $(card).append(cardBody);
-
-    var characterImage = $("<img>");
-    characterImage.addClass("card-img-top card-img-top-character");
-    characterImage.attr("src", "./assets/characters/" + nameToCreate + ".jpg");
-    $(cardBody).append(characterImage);
-
-    var characterName = $("<h5>");
-    characterName.addClass("card-title card-title-character");
-    characterName.text(nameToCreate.toUpperCase())
-    $(cardBody).append(characterName);
 }
 
 function hideOnSelectPlayerCharacter() {
@@ -70,7 +44,7 @@ function hideOnSelectPlayerCharacter() {
 
 function playerHasSelectedCharacter(selectedCharacter) {
     removeFromCharacterList(selectedCharacter);
-    createCharacterCard(displayWorld.chosenPlayer, selectedCharacter);
+    cardFactory("characterCard",displayWorld.chosenPlayer, selectedCharacter);
     populateStatsCard(displayPlayer, selectedCharacter);
     $(displayWorld.playerCard).show();
     $(displayWorld.mainMessage).text(messagesDictionary.selectEnemy);
@@ -101,7 +75,7 @@ function renderStats(parent) {
 function playerHasSelectedEnemy(selectedCharacter) {
     $(displayWorld.characterDiv).hide();
     removeFromCharacterList(selectedCharacter);
-    createCharacterCard(displayWorld.chosenEnemy, selectedCharacter);
+    cardFactory("characterCard",displayWorld.chosenEnemy, selectedCharacter);
     populateStatsCard(displayEnemy, selectedCharacter);
     $(displayWorld.enemyCard).show();
     $(displayWorld.mainMessage).text(messagesDictionary.battleBegin);
