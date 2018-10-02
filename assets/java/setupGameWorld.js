@@ -12,6 +12,8 @@ $(document).on("click", ".card-character", function () {
 });
 
 function setGameUpFirstTime(){
+    $(displayWorld.jumbotron).css('background-image', 'url(./assets/worldImages/banner.jpg)');
+    $(displayWorld.body).css('background-image', 'url(./assets/worldImages/woldBkg.jpg)');
     $(displayWorld.jumboWords).text(messagesDictionary.jumboTitle);
     $(displayWorld.mainMessage).text(messagesDictionary.selectCharacter);
     setGameUpToPlay();

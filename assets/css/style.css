@@ -15,7 +15,7 @@
     border-width: 1em;
     border-style: ridge;
     border-color: var(--borderColor);
-    background: url('/assets/worldImages/banner.jpg') center center;
+    background: center center; /* url('/assets/worldImages/banner.jpg') */
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -29,7 +29,7 @@ body{
     background-color: var(--backgroundColor);
     color: var(--textColor);
     font-family: var(--font-family);
-    background-image: url("/assets/worldImages/woldBkg.jpg");
+    /* background-image: url("/assets/worldImages/woldBkg.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
 }

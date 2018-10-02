@@ -1,4 +1,6 @@
 var displayWorld = {
+    body: "body",
+    jumbotron: ".jumbotron",
     jumboWords: ".jumboWords",
     mainMessage: "#mainMessage",
     characterDiv: "#characterDiv",
